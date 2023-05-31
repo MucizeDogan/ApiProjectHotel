@@ -1,4 +1,4 @@
-namespace HotelProject.ApiConsume
+namespace HotelProject.WebApi
 {
     public class Program
     {
