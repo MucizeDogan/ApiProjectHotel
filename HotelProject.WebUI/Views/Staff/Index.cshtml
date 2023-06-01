@@ -1,8 +1,148 @@
-﻿
+﻿@model ResponseViewModel
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+
+<link href="~/adminTheme/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<h1>sss</h1>
+
+
+
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        @*<div class="col-12">*@
+        <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select>
+        @*<div class="card">*@
+        @*<div class="card-body">*@
+        @*<h4 class="card-title">Data Table</h4>*@
+        @*<div class="table-responsive">*@
+        <table class="table table-striped table-bordered zero-configuration">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Staff Title</th>
+                    <th>TwitterUrl</th>
+                    <th>Details</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.set)
+                {
+
+
+                    <tr>
+                        <td>@item.staffID</td>
+                        <td>@item.name</td>
+                        <td>@item.jobTitle</td>
+                        <td>@item.twitterUrl</td>
+                        <td>@item.instagramUrl</td>
+                        <td><a href="#" class="btn btn-dark">Details</a></td>
+                        <td><a href="#" class="btn btn-warning">Update</a></td>
+                        <td><a href="#" class="btn btn-danger">Delete</a></td>
+                    </tr>
+                }
+                <tr>
+            </tbody>
+        </table>
+
+        @*</div>*@
+        @*</div>*@
+        @* </div>*@
+        @*</div>*@
+    </div>
+</div>
+<a href="/Staff/AddStaff/" class="btn btn-primary">New Personal Add</a>
+
+
+
+
+
+<script src="~/adminTheme/plugins/common/common.min.js"></script>
+<script src="js/custom.min.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/gleek.js"></script>
+<script src="js/styleSwitcher.js"></script>
+
+<script src="~/adminTheme/plugins/tables/js/jquery.dataTables.min.js"></script>
+<script src="~/adminTheme/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
+<script src="~/adminTheme/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<table id="example" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Personal Name</th>
+            <th>Personal Title</th>
+            <th>Delete</th>
+            <th>Update</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.set)
+        {
+            <tr>
+                <td>@item.staffID</td>
+                <td>@item.name</td>
+                <td>@item.jobTitle</td>
+                <td>61</td>
+                <td>2011-04-25</td>
+                <td>$320,800</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+        </tr>
+    </tfoot>
+</table>
+
+
+<script src="~/DataTables/datatables.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    });
+</script>*@
+
+
+
+
+
 

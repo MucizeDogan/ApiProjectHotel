@@ -14,6 +14,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="~/adminTheme/images/favicon.png">
     <!-- Custom Stylesheet -->
     <link href="~/adminTheme/css/style.css" rel="stylesheet">
+     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
 </head>
 
@@ -61,14 +63,15 @@
         ***********************************-->
         <div class="content-body">
 
-            <div class="row page-titles mx-0">
+            @*<div class="row page-titles mx-0">
                 <div class="col p-md-0">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
                         <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
                     </ol>
                 </div>
-            </div>
+            </div>*@
+            <br /> 
             <!-- row -->
 
             <div class="container-fluid">
@@ -95,7 +98,9 @@
         </div>
 
     </div>
-
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/adminTheme/plugins/common/common.min.js"></script>
     <script src="~/adminTheme/js/custom.min.js"></script>
     <script src="~/adminTheme/js/settings.js"></script>
