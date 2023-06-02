@@ -23,7 +23,7 @@ namespace HotelProject.WebUI.Controllers
             if (responseMessage.IsSuccessStatusCode)             //Eğer ki burası başarılı bir durum kodu dönerse
             {
                 var jsonResult = await responseMessage.Content.ReadAsStringAsync();       //Gelen veriyi jsonResult a ata
-                var data = JsonConvert.DeserializeObject<ResponseViewModel>(jsonResult);    //Bize gelen data json türünde bu datayı deserilize edeceğiz  
+                var data = JsonConvert.DeserializeObject<List<StaffViewModel>>(jsonResult);    //Bize gelen data json türünde bu datayı deserilize edeceğiz  
                 return View(data);
             }
             return View();
@@ -47,6 +47,45 @@ namespace HotelProject.WebUI.Controllers
                 return RedirectToAction("Index");
             }
             return View();
+        }
+
+        public async Task<IActionResult> DeleteStaff(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.DeleteAsync($"http://localhost:35402/api/Staff/{id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> UpdateStaff(int id)
+        {
+            var client = _httpClientFactory.CreateClient(); 
+            var responseMessage = await client.GetAsync($"http://localhost:35402/api/Staff/{id}");
+            if(!responseMessage.IsSuccessStatusCode)
+            {
+                return View();
+            }
+            var jsonResult = await responseMessage.Content.ReadAsStringAsync(); //Gelen veriyi jsonResult a ata
+            var data = JsonConvert.DeserializeObject<UpdateViewModel>(jsonResult);
+            return View(data);
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateStaff(UpdateViewModel model)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonResult= JsonConvert.SerializeObject(model);
+            StringContent stringContent = new StringContent(jsonResult, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PutAsync($"http://localhost:35402/api/Staff", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+                
+            }
+            return View(); 
         }
     }
 }

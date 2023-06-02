@@ -1,9 +1,8 @@
-﻿@model List<StaffViewModel>
+﻿@model List<TestimonialViewModel>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
-
 
 <link href="~/adminTheme/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
@@ -27,9 +26,10 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Name</th>
-                    <th>Staff Title</th>
-                    <th>TwitterUrl</th>
+                    <th>Testimonial Name</th>
+                    <th>Testimonial Title</th>
+                    <th>Desription</th>
+                    <th>Image</th>
                     <th>Details</th>
                     <th>Update</th>
                     <th>Delete</th>
@@ -41,14 +41,14 @@
 
 
                     <tr>
-                        <td>@item.staffID</td>
-                        <td>@item.name</td>
-                        <td>@item.jobTitle</td>
-                        @*<td>@item.twitterUrl</td>
-                        <td>@item.instagramUrl</td>*@
+                        <td>@item.TestimonialID</td>
+                        <td>@item.Name</td>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td>@item.Image</td>
                         <td><a href="#" class="btn btn-dark">Details</a></td>
-                        <td><a href="/Staff/UpdateStaff/@item.staffID" class="btn btn-warning">Update</a></td>
-                        <td><a href="/Staff/DeleteStaff/@item.staffID" class="btn btn-danger">Delete</a></td>
+                        <td><a href="/Testimonial/UpdateTestimonial/@item.TestimonialID" class="btn mb-1 btn-rounded btn-warning">Update</a></td>
+                        <td><a href="/Testimonial/DeleteTestimonial/@item.TestimonialID" class="btn btn-danger">Delete</a></td>
                     </tr>
                 }
                 <tr>
@@ -61,7 +61,8 @@
         @*</div>*@
     </div>
 </div>
-<a href="/Staff/AddStaff/" class="btn btn-primary">New Personal Add</a>
+<a href="/Testimonial/AddTestimonial/" class="btn mb-1 btn-rounded btn-primary">New Personal Add</a>
+
 
 
 
@@ -76,73 +77,4 @@
 <script src="~/adminTheme/plugins/tables/js/jquery.dataTables.min.js"></script>
 <script src="~/adminTheme/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
 <script src="~/adminTheme/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@*<table id="example" class="display" style="width:100%">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Personal Name</th>
-            <th>Personal Title</th>
-            <th>Delete</th>
-            <th>Update</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.set)
-        {
-            <tr>
-                <td>@item.staffID</td>
-                <td>@item.name</td>
-                <td>@item.jobTitle</td>
-                <td>61</td>
-                <td>2011-04-25</td>
-                <td>$320,800</td>
-            </tr>
-        }
-    </tbody>
-    <tfoot>
-        <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
-        </tr>
-    </tfoot>
-</table>
-
-
-<script src="~/DataTables/datatables.js"></script>
-<script src="~/lib/jquery/dist/jquery.js"></script>
-
-<script>
-    $(document).ready(function() {
-        $('#example').DataTable();
-    });
-</script>*@
-
-
-
-
-
 

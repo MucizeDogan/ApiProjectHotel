@@ -1,6 +1,6 @@
 ﻿using HotelProject.BusinessLayer.Abstract;
 using HotelProject.EntityLayer.Concrete;
-using HotelProject.WebApi.Response;
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,71 +18,71 @@ namespace HotelProject.WebApi.Controllers
         }
 
         [HttpGet]
-        public ApiResponse SubscribeList()
+        public IActionResult SubscribeList()
         {
             try
             {
                 var data = _subscribeService.TGetList();
-                return new ApiResponse { IsSuccessful = true, Message = "Successful", Set = data };
+                return Ok(data);
             }
             catch (Exception exp)
             {
 
-                return new ApiResponse { IsSuccessful = false, Message = "Error", Set = exp.StackTrace };
+                return BadRequest(exp.Message);
             }
         }
         [HttpPost]
-        public ApiResponse AddSubscribe(Subscribe subscribe)
+        public IActionResult AddSubscribe(Subscribe subscribe)
         {
             try
             {
                 _subscribeService.TInsert(subscribe);
-                return new ApiResponse { IsSuccessful = true, Message = "Successfully Added", Set = subscribe };
+                return Ok();
             }
             catch (Exception exp)
             {
-                return new ApiResponse { IsSuccessful = false, Message = "Error", Set = exp.StackTrace };
+                return BadRequest(exp.Message);
             }
         }
         [HttpDelete]
-        public ApiResponse DeleteSubscribe(int id)
+        public IActionResult DeleteSubscribe(int id)
         {
             try
             {
                 var data = _subscribeService.TGetById(id);
                 _subscribeService.TDelete(data);
-                return new ApiResponse { IsSuccessful = true, Message = "Successfully Deleted", Set = data };
+                return Ok();
             }
             catch (Exception exp)
             {
-                return new ApiResponse { IsSuccessful = false, Message = "Error", Set = exp.Message };
+                return BadRequest(exp.Message);
             }
         }
         [HttpPut]
-        public ApiResponse UpdateSubscribe(Subscribe subscribe)
+        public IActionResult UpdateSubscribe(Subscribe subscribe)
         {
             try
             {
                 _subscribeService.TUpdate(subscribe);
-                return new ApiResponse { IsSuccessful = true, Message = "Successfully Updated", Set = subscribe };
+                return Ok();
             }
             catch (Exception exp)
             {
-                return new ApiResponse { IsSuccessful = false, Message = "Error", Set = exp.StackTrace };
+                return BadRequest(exp.Message);
             }
 
         }
         [HttpGet("{id}")] // bu httpGet dışarıdan bi id parametresi alıcak.
-        public ApiResponse GetSubscribe(int id)
+        public IActionResult GetSubscribe(int id)
         {
             try
             {
                 var data = _subscribeService.TGetById(id);
-                return new ApiResponse { IsSuccessful = true, Message = "Successfully Get", Set = data };
+                return Ok(data);
             }
             catch (Exception exp)
             {
-                return new ApiResponse { IsSuccessful = false, Message = "Error", Set = exp.StackTrace };
+                return BadRequest(exp.Message);
             }
 
         }

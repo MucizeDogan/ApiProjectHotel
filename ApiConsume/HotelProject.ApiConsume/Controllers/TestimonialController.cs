@@ -1,6 +1,5 @@
 ﻿using HotelProject.BusinessLayer.Abstract;
 using HotelProject.EntityLayer.Concrete;
-using HotelProject.WebApi.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,71 +17,71 @@ namespace HotelProject.WebApi.Controllers
         }
 
         [HttpGet]
-        public ApiResponse TestimonialfList()
+        public IActionResult TestimonialList()
         {
             try
             {
                 var data = _testimonialService.TGetList();
-                return new ApiResponse { IsSuccessful = true, Message = "Successful", Set = data };
+                return Ok(data);
             }
             catch (Exception exp)
             {
 
-                return new ApiResponse { IsSuccessful = false, Message = "Error", Set = exp.StackTrace };
+                return BadRequest(exp.Message);
             }
         }
         [HttpPost]
-        public ApiResponse AddTestimonial(Testimonial testimonial)
+        public IActionResult AddTestimonial(Testimonial testimonial)
         {
             try
             {
                 _testimonialService.TInsert(testimonial);
-                return new ApiResponse { IsSuccessful = true, Message = "Successfully Added", Set = testimonial };
+                return Ok();
             }
             catch (Exception exp)
             {
-                return new ApiResponse { IsSuccessful = false, Message = "Error", Set = exp.StackTrace };
+                return BadRequest(exp.Message);
             }
         }
-        [HttpDelete]
-        public ApiResponse DeleteTestimonial(int id)
+        [HttpDelete("{id}")]
+        public IActionResult DeleteTestimonial(int id)
         {
             try
             {
                 var data = _testimonialService.TGetById(id);
                 _testimonialService.TDelete(data);
-                return new ApiResponse { IsSuccessful = true, Message = "Successfully Deleted", Set = data };
+                return Ok();
             }
             catch (Exception exp)
             {
-                return new ApiResponse { IsSuccessful = false, Message = "Error", Set = exp.Message };
+                return BadRequest(exp.Message);
             }
         }
         [HttpPut]
-        public ApiResponse UpdateTestimonial(Testimonial testimonial)
+        public IActionResult UpdateTestimonial(Testimonial testimonial)
         {
             try
             {
                 _testimonialService.TUpdate(testimonial);
-                return new ApiResponse { IsSuccessful = true, Message = "Successfully Updated", Set = testimonial };
+                return Ok();
             }
             catch (Exception exp)
             {
-                return new ApiResponse { IsSuccessful = false, Message = "Error", Set = exp.StackTrace };
+                return BadRequest(exp.Message);
             }
 
         }
         [HttpGet("{id}")] // bu httpGet dışarıdan bi id parametresi alıcak.
-        public ApiResponse GetTestimonial(int id)
+        public IActionResult GetTestimonial(int id)
         {
             try
             {
                 var data = _testimonialService.TGetById(id);
-                return new ApiResponse { IsSuccessful = true, Message = "Successfully Get", Set = data };
+                return Ok(data);
             }
             catch (Exception exp)
             {
-                return new ApiResponse { IsSuccessful = false, Message = "Error", Set = exp.StackTrace };
+                return BadRequest(exp.Message);
             }
 
         }

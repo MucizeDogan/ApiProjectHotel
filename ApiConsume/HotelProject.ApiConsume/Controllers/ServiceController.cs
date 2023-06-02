@@ -1,6 +1,6 @@
 ﻿using HotelProject.BusinessLayer.Abstract;
 using HotelProject.EntityLayer.Concrete;
-using HotelProject.WebApi.Response;
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,71 +18,71 @@ namespace HotelProject.WebApi.Controllers
         }
 
         [HttpGet]
-        public ApiResponse ServiceList()
+        public IActionResult ServiceList()
         {
             try
             {
                 var data = _serviceService.TGetList();
-                return new ApiResponse { IsSuccessful = true, Message = "Successful", Set = data };
+                return Ok(data);
             }
             catch (Exception exp)
             {
 
-                return new ApiResponse { IsSuccessful = false, Message = "Error", Set = exp.StackTrace };
+                return BadRequest(exp.Message);
             }
         }
         [HttpPost]
-        public ApiResponse AddService(Service service)
+        public IActionResult AddService(Service service)
         {
             try
             {
                 _serviceService.TInsert(service);
-                return new ApiResponse { IsSuccessful = true, Message = "Successfully Added", Set = service };
+                return Ok();
             }
             catch (Exception exp)
             {
-                return new ApiResponse { IsSuccessful = false, Message = "Error", Set = exp.StackTrace };
+                return BadRequest(exp.Message);
             }
         }
         [HttpDelete]
-        public ApiResponse DeleteService(int id)
+        public IActionResult DeleteService(int id)
         {
             try
             {
                 var data = _serviceService.TGetById(id);
                 _serviceService.TDelete(data);
-                return new ApiResponse { IsSuccessful = true, Message = "Successfully Deleted", Set = data };
+                return Ok();
             }
             catch (Exception exp)
             {
-                return new ApiResponse { IsSuccessful = false, Message = "Error", Set = exp.Message };
+                return BadRequest(exp.Message);
             }
         }
         [HttpPut]
-        public ApiResponse UpdateService(Service service)
+        public IActionResult UpdateService(Service service)
         {
             try
             {
                 _serviceService.TUpdate(service);
-                return new ApiResponse { IsSuccessful = true, Message = "Successfully Updated", Set = service };
+                return Ok();
             }
             catch (Exception exp)
             {
-                return new ApiResponse { IsSuccessful = false, Message = "Error", Set = exp.StackTrace };
+                return BadRequest(exp.Message);
             }
         }
 
         [HttpGet("{id}")] // bu httpGet dışarıdan bi id parametresi alıcak.
-        public ApiResponse GetService(int id)
+        public IActionResult GetService(int id)
         {
             try
             {
                 var data = _serviceService.TGetById(id);
-                return new ApiResponse { IsSuccessful = true, Message = "Successfully Get", Set = data };
+                return Ok(data);
             }
             catch (Exception exp)
             {
-                return new ApiResponse { IsSuccessful = false, Message = "Error", Set = exp.StackTrace };
+                return BadRequest(exp.Message);
             }
 
         }
