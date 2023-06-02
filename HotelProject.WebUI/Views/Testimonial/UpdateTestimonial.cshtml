@@ -1,0 +1,26 @@
+﻿@model UpdateTestimonialDto
+@{
+    ViewData["Title"] = "UpdateTestimonial";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>UpdateTestimonial</h1>
+<form method="post">
+    <input type="hidden" asp-for="TestimonialID" />
+    <label> Service Icon </label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+    <br />
+     <label> Service Title </label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <span asp-validation-for="Title" class="text-danger"></span>
+    <br />
+     <label> Description </label>
+    <input type="text" asp-for="Description" class="form-control" />
+    <label> Image </label>
+      <input type="text" asp-for="Image" class="form-control" />
+    <br />
+    <br /> <br /> <br />
+    <button class="btn btn-outline-success">Update</button>
+</form>
+

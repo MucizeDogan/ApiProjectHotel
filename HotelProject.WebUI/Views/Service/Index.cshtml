@@ -1,4 +1,4 @@
-﻿@model List<ListTestimonialDto>
+﻿@model List<ListServiceDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
@@ -6,11 +6,6 @@
 
 <link href="~/adminTheme/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
-<h1>sss</h1>
-
-
-
-
 
 
 
@@ -26,10 +21,9 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Testimonial Name</th>
-                    <th>Testimonial Title</th>
-                    <th>Desription</th>
-                    <th>Image</th>
+                    <th>Service Icon</th>
+                    <th>Service Title</th>
+                    <th>Description</th>
                     <th>Details</th>
                     <th>Update</th>
                     <th>Delete</th>
@@ -41,14 +35,13 @@
 
 
                     <tr>
-                        <td>@item.TestimonialID</td>
-                        <td>@item.Name</td>
+                        <td>@item.ServiceID</td>
+                        <td>@item.ServiceIcon</td>
                         <td>@item.Title</td>
                         <td>@item.Description</td>
-                        <td>@item.Image</td>
                         <td><a href="#" class="btn btn-dark">Details</a></td>
-                        <td><a href="/Testimonial/UpdateTestimonial/@item.TestimonialID" class="btn mb-1 btn-rounded btn-warning">Update</a></td>
-                        <td><a href="/Testimonial/DeleteTestimonial/@item.TestimonialID" class="btn btn-danger">Delete</a></td>
+                        <td><a href="/Service/UpdateService/@item.ServiceID" class="btn mb-1 btn-rounded btn-warning">Update</a></td>
+                        <td><a href="/Service/DeleteService/@item.ServiceID" class="btn btn-danger">Delete</a></td>
                     </tr>
                 }
                 <tr>
@@ -61,8 +54,7 @@
         @*</div>*@
     </div>
 </div>
-<a href="/Testimonial/AddTestimonial/" class="btn mb-1 btn-rounded btn-primary">New Personal Add</a>
-
+<a href="/Service/AddService/" class="btn btn-primary">New Service Add</a>
 
 
 

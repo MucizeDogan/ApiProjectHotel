@@ -44,7 +44,7 @@ namespace HotelProject.WebApi.Controllers
                 return BadRequest(exp.Message);
             }
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteService(int id)
         {
             try

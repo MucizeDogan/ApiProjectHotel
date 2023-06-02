@@ -1,0 +1,10 @@
+﻿
+
+Dto ' larımız ile entitylerimi bağlayacağımız sınıfımız (AutoMapperConfig) olacak
+
+Bu sınıfı Profile sınıfından miras aldırtacağız
+
+ve constructor geçip bunun içerisine AutoMapper methodlarını yazılacak.
+
+CreateMap<RoomDto,Room>();
+CreateMap<Room,RoomDto>();

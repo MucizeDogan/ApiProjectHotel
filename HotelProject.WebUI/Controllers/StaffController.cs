@@ -76,6 +76,10 @@ namespace HotelProject.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateStaff(UpdateViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             var client = _httpClientFactory.CreateClient();
             var jsonResult= JsonConvert.SerializeObject(model);
             StringContent stringContent = new StringContent(jsonResult, Encoding.UTF8, "application/json");
