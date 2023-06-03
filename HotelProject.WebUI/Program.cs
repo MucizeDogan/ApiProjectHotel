@@ -1,3 +1,6 @@
+using HotelProject.DataAccessLayer.Concrete;
+using HotelProject.EntityLayer.Concrete;
+
 namespace HotelProject.WebUI
 {
     public class Program
@@ -13,6 +16,9 @@ namespace HotelProject.WebUI
 
             builder.Services.AddAutoMapper(typeof(Program));
 
+            builder.Services.AddDbContext<Context>();
+            builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<Context>();
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
