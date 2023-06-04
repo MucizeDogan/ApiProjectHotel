@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+@await Component.InvokeAsync("_HeadPartial")
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Header Start -->
+        @await Component.InvokeAsync("_NavbarPartial")
+        <!-- Header End -->
+
+        <!-- Carousel Start -->
+        @await Component.InvokeAsync("_SliderPartial")
+        <!-- Carousel End -->
+       
+        @await Component.InvokeAsync("_ReservationPartial")
+        
+        @await Component.InvokeAsync("_AboutUsPartial")
+        
+        @await Component.InvokeAsync("_RoomPartial")
+     
+        @await Component.InvokeAsync("_LuxuryAndVideoPartial")
+        
+        @await Component.InvokeAsync("_ServicePartial")
+        
+        @await Component.InvokeAsync("_TestimonialPartial")
+      
+        @await Component.InvokeAsync("_TeamPartial")
+
+        @await Component.InvokeAsync("_SubscribePartial")
+        
+        @await Component.InvokeAsync("_FooterPartial")
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    @await Component.InvokeAsync("_ScriptPartial")
+    
+</body>
+</html>
