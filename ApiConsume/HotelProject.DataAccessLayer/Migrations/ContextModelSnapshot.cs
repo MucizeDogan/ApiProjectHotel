@@ -200,6 +200,9 @@ namespace HotelProject.DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("RoomID")
+                        .HasColumnType("int");
+
                     b.Property<string>("SpecialRequest")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -209,6 +212,8 @@ namespace HotelProject.DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BookingID");
+
+                    b.HasIndex("RoomID");
 
                     b.ToTable("Bookings");
                 });
@@ -458,6 +463,17 @@ namespace HotelProject.DataAccessLayer.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("HotelProject.EntityLayer.Concrete.Booking", b =>
+                {
+                    b.HasOne("HotelProject.EntityLayer.Concrete.Room", "Room")
+                        .WithMany()
+                        .HasForeignKey("RoomID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Room");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
