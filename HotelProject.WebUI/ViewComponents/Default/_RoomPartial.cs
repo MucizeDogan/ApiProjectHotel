@@ -19,7 +19,7 @@ namespace HotelProject.WebUI.ViewComponents.Default
                 return View();
             }
             var client = _httpClientFactory.CreateClient(); // Bir tane istemci oluşturduk.
-            var responseMessage = await client.GetAsync("http://localhost:35402/api/Room"); // Bu adrese istekte bullunuyoruz.
+            var responseMessage = await client.GetAsync("http://localhost:5159/api/Room"); // Bu adrese istekte bulunuyoruz.
             if (responseMessage.IsSuccessStatusCode)             //Eğer ki burası başarılı bir durum kodu dönerse
             {
                 var jsonResult = await responseMessage.Content.ReadAsStringAsync();       //Gelen veriyi jsonResult a ata

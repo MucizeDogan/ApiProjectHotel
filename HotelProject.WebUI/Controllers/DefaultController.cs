@@ -31,11 +31,11 @@ namespace HotelProject.WebUI.Controllers
             var jsonResult = JsonConvert.SerializeObject(createSubscribeDto); // Bir veri göndereceğiz bu veriyi json olarka göndereceğimizden serialize diyoruz.
             StringContent stringContent = new StringContent(jsonResult, Encoding.UTF8, "application/json"); // İçeriğimizin dönüşümü için kullnacağımız bir sınıf. 
             // stringContent nesnemin içerisinde şu anda datamız, datamın kodlanmış hali ve türü bulunuyor.
-            await client.PostAsync("http://localhost:35402/api/Subscribe", stringContent);
+            await client.PostAsync("http://localhost:5159/api/Subscribe", stringContent);
             
             return RedirectToAction("Index","Default");
-            
-            
+
+        
         }
     }
 }
