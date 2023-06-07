@@ -1,4 +1,4 @@
-﻿@model List<ListServiceDto>
+﻿@model List<ListBookingDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
@@ -21,12 +21,17 @@
             <thead>
                 <tr>
                     <th>#</th>
-                   
-                    <th>Service Title</th>
-                    <th>Description</th>
-                    <th>Details</th>
-                    <th>Update</th>
-                    <th>Delete</th>
+                    <th>Name</th>
+                    <th>Mail</th>
+                    <th>Check In</th>
+                    <th>Check Out</th>
+                    <th>Adult Count</th>
+                     <th>Adult Count</th>
+                      <th>Adult Count</th>
+                       <th>Special</th>
+                        <th>Desc</th>
+                         <th>Status</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -35,13 +40,21 @@
 
 
                     <tr>
-                        <td>@item.ServiceID</td>
+                        <td>@item.BookingID</td>
                       
-                        <td>@item.Title</td>
+                        <td>@item.Name</td>
+                        <td>@item.Mail</td>
+                        <td>@item.CheckIn</td>
+                        <td>@item.CheckOut</td>
+                        <td>@item.AdultCount</td>
+                        <td>@item.ChildCount</td>
+                        <td>@item.RoomCount</td>
+                        <td>@item.SpecialRequest</td>
                         <td>@item.Description</td>
+                        <td>@item.Status</td>
                         <td><a href="#" class="btn btn-dark">Details</a></td>
-                        <td><a href="/Service/UpdateService/@item.ServiceID" class="btn mb-1 btn-rounded btn-warning">Update</a></td>
-                        <td><a href="/Service/DeleteService/@item.ServiceID" class="btn btn-danger">Delete</a></td>
+                        <td><a href="/Service/UpdateService/@item.BookingID" class="btn mb-1 btn-rounded btn-warning">Update</a></td>
+                        <td><a href="/Service/DeleteService/@item.BookingID" class="btn btn-danger">Delete</a></td>
                     </tr>
                 }
                 <tr>
@@ -69,4 +82,3 @@
 <script src="~/adminTheme/plugins/tables/js/jquery.dataTables.min.js"></script>
 <script src="~/adminTheme/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
 <script src="~/adminTheme/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
-
