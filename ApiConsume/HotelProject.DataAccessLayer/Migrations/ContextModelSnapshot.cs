@@ -53,7 +53,7 @@ namespace HotelProject.DataAccessLayer.Migrations
 
                     b.HasKey("AboutUID");
 
-                    b.ToTable("AboutUs");
+                    b.ToTable("AboutUs", (string)null);
                 });
 
             modelBuilder.Entity("HotelProject.EntityLayer.Concrete.AppRole", b =>
@@ -166,58 +166,6 @@ namespace HotelProject.DataAccessLayer.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("HotelProject.EntityLayer.Concrete.Booking", b =>
-                {
-                    b.Property<int>("BookingID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookingID"), 1L, 1);
-
-                    b.Property<string>("AdultCount")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CheckIn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("CheckOut")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ChildCount")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Mail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RoomID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SpecialRequest")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("BookingID");
-
-                    b.HasIndex("RoomID");
-
-                    b.ToTable("Bookings");
-                });
-
             modelBuilder.Entity("HotelProject.EntityLayer.Concrete.Room", b =>
                 {
                     b.Property<int>("RoomID")
@@ -259,7 +207,7 @@ namespace HotelProject.DataAccessLayer.Migrations
 
                     b.HasKey("RoomID");
 
-                    b.ToTable("Rooms");
+                    b.ToTable("Rooms", (string)null);
                 });
 
             modelBuilder.Entity("HotelProject.EntityLayer.Concrete.Service", b =>
@@ -284,7 +232,7 @@ namespace HotelProject.DataAccessLayer.Migrations
 
                     b.HasKey("ServiceID");
 
-                    b.ToTable("Services");
+                    b.ToTable("Services", (string)null);
                 });
 
             modelBuilder.Entity("HotelProject.EntityLayer.Concrete.Staff", b =>
@@ -313,7 +261,7 @@ namespace HotelProject.DataAccessLayer.Migrations
 
                     b.HasKey("StaffID");
 
-                    b.ToTable("Staffs");
+                    b.ToTable("Staffs", (string)null);
                 });
 
             modelBuilder.Entity("HotelProject.EntityLayer.Concrete.Subscribe", b =>
@@ -330,7 +278,7 @@ namespace HotelProject.DataAccessLayer.Migrations
 
                     b.HasKey("SubscribeID");
 
-                    b.ToTable("Subscribes");
+                    b.ToTable("Subscribes", (string)null);
                 });
 
             modelBuilder.Entity("HotelProject.EntityLayer.Concrete.Testimonial", b =>
@@ -359,7 +307,7 @@ namespace HotelProject.DataAccessLayer.Migrations
 
                     b.HasKey("TestimonialID");
 
-                    b.ToTable("Testimonials");
+                    b.ToTable("Testimonials", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -463,17 +411,6 @@ namespace HotelProject.DataAccessLayer.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("HotelProject.EntityLayer.Concrete.Booking", b =>
-                {
-                    b.HasOne("HotelProject.EntityLayer.Concrete.Room", "Room")
-                        .WithMany()
-                        .HasForeignKey("RoomID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Room");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
