@@ -15,5 +15,13 @@ namespace HotelProject.DataAccessLayer.EntityFramework
         public EfBookingDal(Context context) : base(context)
         {
         }
+
+        public void ConfirmBooking(Booking booking)
+        {
+            var context = new Context();
+            var data = context.Bookings.Where(x => x.BookingID == booking.BookingID).FirstOrDefault();
+            data.Status = "Confirm";
+            context.SaveChanges();
+        }
     }
 }

@@ -60,7 +60,7 @@ namespace HotelProject.WebApi.Controllers
                 return BadRequest(exp.Message);
             }
         }
-        [HttpPut]
+        [HttpPut("UpdateBooking")]
         public IActionResult UpdateBooking(Booking booking)
         {
             try
@@ -87,6 +87,21 @@ namespace HotelProject.WebApi.Controllers
                 return BadRequest(exp.Message);
             }
 
+        }
+        [HttpPut("ChangeBookingStatus")]
+        public IActionResult ChangeBookingStatus(Booking booking)
+        {
+            try
+            {
+                _bookingService.TConfirmBooking(booking);
+                return Ok();
+            }
+            catch (Exception exp)
+            {
+                return BadRequest(exp.InnerException);
+               
+            }
+            
         }
     }
 }

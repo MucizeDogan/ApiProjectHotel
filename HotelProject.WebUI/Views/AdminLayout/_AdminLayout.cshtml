@@ -14,8 +14,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="~/adminTheme/images/favicon.png">
     <!-- Custom Stylesheet -->
     <link href="~/adminTheme/css/style.css" rel="stylesheet">
-     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/adminTheme/css/site.css" asp-append-version="true" />
 
 </head>
 
@@ -73,18 +73,20 @@
             </div>*@
             <br /> 
             <!-- row -->
+             @RenderBody()
+@*              
 
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                @RenderBody()
+                               
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*@
             <!-- #/ container -->
         </div>
         <!--**********************************
@@ -98,9 +100,9 @@
         </div>
 
     </div>
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/adminTheme/lib/jquery/dist/jquery.js"></script>
+     <script src="~/adminTheme/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/adminTheme/js/site.js" asp-append-version="true"></script>
     <script src="~/adminTheme/plugins/common/common.min.js"></script>
     <script src="~/adminTheme/js/custom.min.js"></script>
     <script src="~/adminTheme/js/settings.js"></script>
