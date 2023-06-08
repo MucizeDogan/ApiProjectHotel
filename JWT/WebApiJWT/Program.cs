@@ -26,7 +26,8 @@ namespace WebApiJWT
                     ValidAudience= "http://localhost",
                     IssuerSigningKey= new SymmetricSecurityKey(Encoding.UTF8.GetBytes("mucizedoganapi03")),  //Kim hangi deðere veriye  sahip olursa validasyondna geçecek.
                     ValidateIssuerSigningKey = true,
-                    ValidateLifetime = true
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero
                 };
             });
 
@@ -39,6 +40,7 @@ namespace WebApiJWT
                 app.UseSwaggerUI();
             }
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
 
