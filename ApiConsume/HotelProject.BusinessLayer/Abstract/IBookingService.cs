@@ -10,5 +10,6 @@ namespace HotelProject.BusinessLayer.Abstract
     public interface IBookingService : IGenericService<Booking>
     {
         void TConfirmBooking(Booking booking);
+        void TConfirmBookingforId(int id);
     }
 }

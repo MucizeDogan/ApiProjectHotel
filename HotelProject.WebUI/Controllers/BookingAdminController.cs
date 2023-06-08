@@ -30,6 +30,12 @@ namespace HotelProject.WebUI.Controllers
             return View();
         }
 
-     }
-    
+        public async Task<IActionResult> ConfirmedBooking(int id) 
+        {
+
+
+
+            return View();
+        }
+    }
 }

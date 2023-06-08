@@ -103,5 +103,21 @@ namespace HotelProject.WebApi.Controllers
             }
             
         }
+
+        [HttpPut("ChangeBookingStatusid")]
+        public IActionResult ChangeBookingStatusid(int id)
+        {
+            try
+            {
+                _bookingService.TConfirmBookingforId(id);
+                return Ok();
+            }
+            catch (Exception exp)
+            {
+                return BadRequest(exp.InnerException);
+
+            }
+
+        }
     }
 }

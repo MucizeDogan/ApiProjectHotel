@@ -23,5 +23,13 @@ namespace HotelProject.DataAccessLayer.EntityFramework
             data.Status = "Confirm";
             context.SaveChanges();
         }
+
+        public void ConfirmBookingforId(int id)
+        {
+            var context = new Context();
+            var data = context.Bookings.Find(id); 
+            data.Status = "Confirm";
+            context.SaveChanges();
+        }
     }
 }

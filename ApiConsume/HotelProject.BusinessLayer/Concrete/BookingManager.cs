@@ -23,6 +23,11 @@ namespace HotelProject.BusinessLayer.Concrete
             _bookingDal.ConfirmBooking(booking);
         }
 
+        public void TConfirmBookingforId(int id)
+        {
+            _bookingDal.ConfirmBookingforId(id);
+        }
+
         public void TDelete(Booking t)
         {
             _bookingDal.Delete(t);
